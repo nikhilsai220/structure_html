@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Guess Game</h1>
+        <p>please open console before starting the game</p>
+        <button id = "start">start</button>
+         
+        <script>
+            const start = document.getElementById('start')
+
+            function startGame(){
+                const name = prompt('enter your name')
+                console.log(`welcome to the Guess Game, ${name}`)
+
+                const target = Math.ceil(Math.random()*100)
+                console.log(target)
+                const  maxGuess = 10
+                let won = false
+
+                for(let i=0;i<maxGuess;i++){
+                    const guess = prompt(`Guess my number (${maxGuess}-1) chances left`)
+                    if(guess<target){
+                        console.log(`OOPS!!! your guess was low`)
+                    }else if(guess>target){
+                        console.log(`OOPS!!! your guess was high`)
+                    }else if(Number(guess)===target){
+                        console.log(`Good Job,${name},you guess in ${i=1} gusses`)
+                        won = true
+                        break
+
+                    }
+                }
+                if(!won){
+                    console.log(`Sorry, You did'nt get my number , My number was ${target}`)
+                }
+            }
+            start.addEventListener('click',function(){
+                startGame()
+            })
+        </script>
+    </body>
+</html>
